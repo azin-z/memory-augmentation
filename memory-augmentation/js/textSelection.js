@@ -16,7 +16,7 @@ function handleSelection(e, copy=false) {
 	for (sel_node of getSelectedNodes()){
 		updateExistingItemsSelWeight(sel_node.parentNode, copy)
 	}
-	writeSelectionTextToStorage(selText);
+	// writeSelectionTextToStorage(selText);
 }
 
 function updateExistingItemsSelWeight(el, copy) {
