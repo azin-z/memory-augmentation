@@ -31,7 +31,7 @@ function main() {
 
 	port.onMessage.addListener(function (msg) {
 		if (msg.active) {
-			onVisibilityChange(true); 
+			onVisibilityChange(true);
 		}
 	});
 }
@@ -152,7 +152,7 @@ function writeNewItemToStorage(key, newItem) {
 	var result = {};
 	result[url + urlKeySeparator + key] = newItem;
 	chrome.storage.local.set(result, function () {
-		console.log(result, ' saved to storage!');
+		// console.log(result, ' saved to storage!');
 	});
 }
 
@@ -173,7 +173,7 @@ function updateExistingItemsTS(key, isInView) {
 		var result = {};
 		result[url + urlKeySeparator + key] = item[url + urlKeySeparator + key];
 		chrome.storage.local.set(result, function () {
-			console.log(result[url + urlKeySeparator + key], 'updated in storage');
+			// console.log(result[url + urlKeySeparator + key], 'updated in storage');
 		});
 	});
 }
