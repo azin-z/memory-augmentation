@@ -24,7 +24,6 @@ function updateExistingItemsSelWeight(el, copy) {
 	if(copy)
 		feature_name = "copyWeight";
 
-	console.log(el);
 	var elementID = el.getAttribute('m-id');
 	if (!elementID)
 		return;
@@ -35,7 +34,7 @@ function updateExistingItemsSelWeight(el, copy) {
 		var result = {};
 		result[url + urlKeySeparator + elementID] = item[url + urlKeySeparator + elementID];
 		chrome.storage.local.set(result, function () {
-			console.log(result[url + urlKeySeparator + elementID], 'updated in storage');
+			// console.log(result[url + urlKeySeparator + elementID], 'updated in storage');
 		});
 	});
 }

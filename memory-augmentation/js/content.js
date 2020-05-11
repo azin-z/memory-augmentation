@@ -68,7 +68,7 @@ function writeNewItemToStorage(key, newItem) {
 	var result = {};
 	result[url + urlKeySeparator + key] = newItem;
 	chrome.storage.local.set(result, function () {
-		console.log(result, ' saved to storage!');
+		// console.log(result, ' saved to storage!');
 	});
 }
 
@@ -89,7 +89,7 @@ function updateExistingItemsTS(key, isInView) {
 		var result = {};
 		result[url + urlKeySeparator + key] = item[url + urlKeySeparator + key];
 		chrome.storage.local.set(result, function () {
-			console.log(result[url + urlKeySeparator + key], 'updated in storage');
+			// console.log(result[url + urlKeySeparator + key], 'updated in storage');
 		});
 	});
 }
@@ -142,7 +142,7 @@ function writeElementToStorage(el, isInView) {
 			type: 'in_view'
 		};
 		if (itemIsTooBig(newItem)) {
-			console.log("item is big");
+			// console.log("item is big");
 		}
 		writeNewItemToStorage(elementID, newItem);
 	}
