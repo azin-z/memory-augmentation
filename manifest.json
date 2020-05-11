@@ -6,7 +6,7 @@
    "content_scripts": [ {
       "all_frames": true,
       "css": [ "contentstyle.css" ],
-      "js": [ "contentscript.js", "memory-augmentation/js/utils.js", "memory-augmentation/js/content.js", "memory-augmentation/js/textSelection.js"],
+      "js": [ "contentscript.js"],
       "matches": [ "http://*/*", "https://*/*", "ftp://*/*", "file://*/*" ],
       "run_at": "document_start"
    } ],
