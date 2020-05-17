@@ -16,4 +16,3 @@ function generateUID() {
 	idstr += idCounter.toString();
 	return (idstr);
 }
-

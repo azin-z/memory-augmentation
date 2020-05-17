@@ -3,6 +3,21 @@
     width:300px;
     max-height: 90px;
 }
+.data-collection-container{
+  display: grid;
+  align-items: stretch;
+  justify-items: start;
+  grid-template-columns: 2fr 1fr;
+}
+.get-results{
+  align-self: start;
+}
+.flush-db{
+  justify-content: end;
+  align-content: end;
+  align-self: end;
+}
+
 .switch-container{
     display: inline-flex;
     align-items: flex-end;
