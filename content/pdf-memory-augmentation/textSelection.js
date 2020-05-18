@@ -7,14 +7,33 @@ document.addEventListener(
 	}
 );
 
+function highlightText(sel_node) {
+	let highlightClass = "pdf-highlighted";
+	if(sel_node.classList && sel_node.classList.contains(highlightClass)){
+		sel_node.classList.remove(highlightClass);
+	}
+	else{
+		sel_node.classList.add(highlightClass);
+	}
+}
+
 function handleSelection(e, copy=false) {
 	var sel = window.getSelection();
 	var selText = sel.toString();
 	if (elementTextIsEmpty(selText))
 		return;
 	var sel_node;
-	for (sel_node of getSelectedNodes()){
-		updateExistingItemsSelWeight(sel_node.parentNode, copy)
+	var selnodes = getSelectedNodes();
+
+	for (sel_node of selnodes){
+		if (selnodes.length === 1 && !sel_node.tagName){
+			sel_node = sel_node.parentNode;
+		}
+		else if (!sel_node.tagName) {
+			continue;
+		}
+		highlightText(sel_node);
+		updateExistingItemsSelWeight(sel_node, copy)
 	}
 	writeSelectionTextToStorage(selText);
 }
@@ -42,7 +61,7 @@ function updateExistingItemsSelWeight(el, copy) {
 function writeSelectionTextToStorage(text) {
 	var ts = getCurrTime();
 	var newItem = {timestamps: ts, data: text, url: url, type: 'selection'};
-	writeNewItemToStorage(generateUID(), newItem);
+	// writeNewItemToStorage(generateUID(), newItem);
 }
 
 function nextNode(node) {
